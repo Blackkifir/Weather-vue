@@ -1,12 +1,17 @@
 <template>
   <div class="primary">
-    <h1>primary-block</h1>
+    <input-searchCity />
   </div>
 </template>
 
 <script>
+import InputSearchCity from '@/components/InputSearchCity.vue';
+
 export default {
   name: 'primary-block',
+  components: {
+    InputSearchCity,
+  }
 }
 </script>
 
@@ -14,7 +19,7 @@ export default {
   .primary {
     border: none;
     border-radius: 5px;
-    padding: 15px;
+    padding: 25px 25px;
     background-color: rgb(28, 124, 107);
   }
 </style>
