@@ -1,12 +1,7 @@
 <template>
   <div class="searchCity">
     <div>
-      <label
-        class="chooseText"
-        for="searchCity"
-    >
-      Choose a city:
-    </label>
+      <label class="chooseText" for="searchCity">Choose a city:</label>
       <input
         class="searchInput"
         type="text"
@@ -14,7 +9,9 @@
         name="searchCity"
         list="cityList"
         placeholder="search..."
-      >
+        :value="modelValue"
+        @input="updateSearchCity"
+      />
       <datalist id="cityList">
         <option value="New York"></option>
         <option value="Los Angeles"></option>
@@ -23,12 +20,7 @@
       </datalist>
     </div>
     <div>
-      <button
-        class="toFavoritesBtn"
-        type="button"
-      >
-        To Favorites
-      </button>
+      <button class="toFavoritesBtn" type="button">To Favorites</button>
     </div>
   </div>
 </template>
@@ -36,7 +28,15 @@
 <script>
 export default {
   name: 'input-searchCity',
-}
+  props: {
+    modelValue: [String, Number],
+  },
+  methods: {
+    updateSearchCity(event) {
+      this.$emit('update:modelValue', event.target.value);
+    }
+  }
+};
 </script>
 
 <style scoped>

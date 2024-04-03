@@ -1,46 +1,22 @@
 <template>
-  <div>
     <div class="dayOfWeek">
       <div class="dayOfWeek_date">
         <p class="dayOfWeek_day">31</p>
         <p class="dayOfWeek_currentDay">Sunday</p>
       </div>
-      <primary-card />
-    </div>
+    <primary-card />
   </div>
 </template>
 
 <script>
-  import {mapState, mapActions, mapMutations} from 'vuex';
   import PrimaryCard from '../Primary/PrimaryCard.vue';
 
   export default {
     name: 'date-day-of-week',
-    
+
     components: {
       PrimaryCard,
     },
-
-    data() {
-      return {}
-    },
-    methods: {
-      ...mapMutations({
-        setItems: 'weather/setItems',
-      }),
-      ...mapActions({
-        getDayOfWeek: 'weather/getDayOfWeek',
-      }),
-    },
-    computed: {
-      ...mapState({
-        items: state => state.weather.items,
-      }),
-    },
-    mounted() {
-      this.getDayOfWeek();
-      console.log(this.items.id);
-    }
   }
 </script>
 
