@@ -10,28 +10,26 @@
 </template>
 
 <script>
-  import axios from 'axios';
+  import {mapState, mapActions, mapMutations} from 'vuex';
 
   export default {
     name: 'day-of-week',
 
     data() {
-      return {
-        items: [],
-      }
+      return {}
     },
     methods: {
-      async getDayOfWeek() {
-        try {
-          const api = 'https://api.openweathermap.org/data/2.5/forecast?q=London&appid=6552610f79c2b672097111aa772032b1';
-          const response = await axios.get(api);
-
-          this.items = response.data;
-          console.log(this.items);
-        } catch (error) {
-          console.log(error);
-        }
-      }
+      ...mapMutations({
+        setItems: 'weather/setItems',
+      }),
+      ...mapActions({
+        getDayOfWeek: 'weather/getDayOfWeek',
+      }),
+    },
+    computed: {
+      ...mapState({
+        items: state => state.weather.items,
+      }),
     },
     mounted() {
       this.getDayOfWeek();

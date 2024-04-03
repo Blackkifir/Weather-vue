@@ -3,7 +3,7 @@
     <div>
       <label
         class="chooseText"
-        for="cities"
+        for="searchCity"
     >
       Choose a city:
     </label>
