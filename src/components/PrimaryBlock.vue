@@ -1,8 +1,13 @@
 <template>
-  <div class="primary">
-    <input-searchCity />
-    <day-of-week />
-    <time-chart />
+  <div v-if="!$store.state.isLoading">
+    <div class="primary">
+      <input-searchCity />
+      <day-of-week />
+      <time-chart />
+    </div>
+  </div>
+  <div v-else>
+    <rainbow-loader />
   </div>
 </template>
 
@@ -10,6 +15,7 @@
 import InputSearchCity from '@/components/InputSearchCity.vue';
 import DayOfWeek from '@/components/DayOfWeek.vue';
 import TimeChart from '@/components/TimeChart.vue';
+import RainbowLoader from './RainbowLoader.vue';
 
 export default {
   name: 'primary-block',
@@ -17,6 +23,7 @@ export default {
     InputSearchCity,
     DayOfWeek,
     TimeChart,
+    RainbowLoader,
   }
 }
 </script>
