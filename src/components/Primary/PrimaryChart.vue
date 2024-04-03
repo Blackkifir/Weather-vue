@@ -6,7 +6,7 @@
 
 <script>
   export default {
-    name: 'time-chart',
+    name: 'primary-chart',
   }
 </script>
 

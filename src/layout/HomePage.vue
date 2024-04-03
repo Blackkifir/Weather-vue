@@ -4,8 +4,8 @@
 </template>
 
 <script>
-import HeaderStatic from '@/components/HeaderStatic.vue';
-import MainStatic from '@/components/MainStatic.vue';
+import HeaderStatic from '@/components/Semantics/HeaderStatic.vue';
+import MainStatic from '@/components/Semantics/MainStatic.vue';
 
 export default {
   name: 'home-page',

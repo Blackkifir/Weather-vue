@@ -2,8 +2,8 @@
   <div v-if="!$store.state.isLoading">
     <div class="primary">
       <input-searchCity />
-      <day-of-week />
-      <time-chart />
+      <date-day-of-week />
+      <primary-chart />
     </div>
   </div>
   <div v-else>
@@ -12,17 +12,17 @@
 </template>
 
 <script>
-import InputSearchCity from '@/components/InputSearchCity.vue';
-import DayOfWeek from '@/components/DayOfWeek.vue';
-import TimeChart from '@/components/TimeChart.vue';
-import RainbowLoader from './RainbowLoader.vue';
+import InputSearchCity from '@/components/Controls/InputSearchCity.vue';
+import DateDayOfWeek from '@/components/Date/DateDayOfWeek.vue';
+import RainbowLoader from '@/components/Loader/RainbowLoader.vue';
+import PrimaryChart from './PrimaryChart.vue';
 
 export default {
   name: 'primary-block',
   components: {
     InputSearchCity,
-    DayOfWeek,
-    TimeChart,
+    DateDayOfWeek,
+    PrimaryChart,
     RainbowLoader,
   }
 }

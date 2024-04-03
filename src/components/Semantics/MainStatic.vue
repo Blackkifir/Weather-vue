@@ -21,7 +21,7 @@
 </template>
 
 <script>
-  import PrimaryBlock from '@/components/PrimaryBlock.vue';
+  import PrimaryBlock from '@/components/Primary/PrimaryBlock.vue';
 
 export default {
   name: 'main-static',

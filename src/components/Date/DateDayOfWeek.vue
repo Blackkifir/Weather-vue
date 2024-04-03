@@ -5,22 +5,20 @@
         <p class="dayOfWeek_day">31</p>
         <p class="dayOfWeek_currentDay">Sunday</p>
       </div>
-      <div class="dayOfWeek_cardsFlex">
-        <day-of-week-card />
-      </div>
+      <primary-card />
     </div>
   </div>
 </template>
 
 <script>
   import {mapState, mapActions, mapMutations} from 'vuex';
-  import DayOfWeekCard from '@/components/DayOfWeekCard.vue';
+  import PrimaryCard from '../Primary/PrimaryCard.vue';
 
   export default {
-    name: 'day-of-week',
+    name: 'date-day-of-week',
     
     components: {
-      DayOfWeekCard,
+      PrimaryCard,
     },
 
     data() {
@@ -41,7 +39,7 @@
     },
     mounted() {
       this.getDayOfWeek();
-      console.log(this.items);
+      console.log(this.items.id);
     }
   }
 </script>
@@ -56,8 +54,8 @@
 
   .dayOfWeek_date {
     display: flex;
-    width: 100%;
     margin-bottom: 10px;
+    width: 100%;
   }
   
   .dayOfWeek_day,
@@ -68,13 +66,6 @@
     font-size: 17px;
     line-height: 20px;
     color: #000000;
-  }
-
-  .dayOfWeek_cardsFlex {
-    display: flex;
-    width: 100%;
-    overflow-x: auto;
-    overflow-y: hidden;
   }
 
   .dayOfWeek_day {
