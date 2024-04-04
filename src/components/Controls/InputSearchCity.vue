@@ -13,29 +13,49 @@
         @input="updateSearchCity"
       />
       <datalist id="cityList">
-        <option value="New York"></option>
-        <option value="Los Angeles"></option>
-        <option value="Chicago"></option>
-        <option value="Houston"></option>
+        <option value="New York" />
+        <option value="Los Angeles" />
+        <option value="Chicago" />
+        <option value="Houston" />
       </datalist>
     </div>
     <div>
-      <button class="toFavoritesBtn" type="button">To Favorites</button>
+      <button
+        @click="addToFavoritesCard"
+        class="toFavoritesBtn"
+        type="button"
+      >
+        To Favorites
+      </button>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState, mapMutations } from 'vuex';
+
 export default {
   name: 'input-searchCity',
   props: {
     modelValue: [String, Number],
   },
   methods: {
+    ...mapMutations({
+      setFavoritesCards: 'weather/setFavoritesCards',
+    }),
     updateSearchCity(event) {
       this.$emit('update:modelValue', event.target.value);
-    }
-  }
+    },
+    addToFavoritesCard() {
+      this.setFavoritesCards(this.itemsProperties);
+    },
+  },
+  computed: {
+    ...mapState({
+      itemsProperties: state => state.weather.itemsProperties,
+      favoritesCards: state => state.weather.favoritesCards,
+    }),
+  },
 };
 </script>
 

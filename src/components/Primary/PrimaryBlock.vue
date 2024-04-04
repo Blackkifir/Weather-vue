@@ -5,7 +5,7 @@
         :modelValue="searchCity"
         @update:modelValue="setSearchCity"
       />
-      <date-day-of-week />
+      <primary-dayOfWeek />
       <primary-chart />
     </div>
   </div>
@@ -18,7 +18,7 @@
 import { debounce } from 'lodash-es';
 import { mapState, mapActions, mapMutations } from 'vuex';
 import InputSearchCity from '@/components/Controls/InputSearchCity.vue';
-import DateDayOfWeek from '@/components/Date/DateDayOfWeek.vue';
+import PrimaryDayOfWeek from '@/components/Primary/PrimaryDayOfWeek';
 import PrimaryChart from './PrimaryChart.vue';
 import RainbowLoader from '../Loader/RainbowLoader.vue';
 
@@ -26,7 +26,7 @@ export default {
   name: 'primary-block',
   components: {
     InputSearchCity,
-    DateDayOfWeek,
+    PrimaryDayOfWeek,
     PrimaryChart,
     RainbowLoader,
   },

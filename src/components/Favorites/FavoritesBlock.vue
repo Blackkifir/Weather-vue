@@ -1,15 +1,25 @@
 <template>
-  <h1>Favorites</h1>
+  <div class="favorites">
+    <favorites-all-cards />
+  </div>
 </template>
 
 <script>
+  import FavoritesAllCards from './FavoritesAllCards.vue';
+
   export default {
     name: 'favorites-block',
+    components: {
+      FavoritesAllCards,
+    }
   }
 </script>
 
 <style scoped>
-  h1 {
-    color: red;
+  .favorites {
+    border: none;
+    border-radius: 5px;
+    padding: 25px 25px;
+    background-color: rgb(28, 124, 107);
   }
 </style>

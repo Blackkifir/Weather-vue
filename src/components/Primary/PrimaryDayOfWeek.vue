@@ -17,17 +17,16 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import PrimaryCard from '../Primary/PrimaryCard.vue';
+import PrimaryCard from './PrimaryCard.vue';
 
 export default {
-  name: 'date-day-of-week',
+  name: 'primary_dayOfWeek',
 
   components: {
     PrimaryCard,
   },
   data() {
     return {
-      itemsProperties: {},
       date: {},
       days: [],
       dayOfWeek: '',
@@ -37,11 +36,13 @@ export default {
   computed: {
     ...mapState({
       items: state => state.weather.items,
+      itemsProperties: state => state.weather.itemsProperties,
     }),
   },
   methods: {
     ...mapMutations({
       setItems: 'weather/setItems',
+      setItemsProperties: 'weather/setItemsProperties',
     }),
     loadDataItems() {
       if (this.items.length !== 0) {
@@ -50,14 +51,15 @@ export default {
         this.dayOfWeek = this.days[this.date.getDay()];
         this.dayOfMonth = this.date.getDate();
 
-        this.itemsProperties = {
+        const newItemsProperties = {
           id: this.items.city.id,
           name: this.items.city.name,
           description: this.items.list[0].weather[0].description,
           temp: Math.round(this.items.list[0].main.temp - 273.15),
           humidity: this.items.list[0].main.humidity,
           wind: Math.round(this.items.list[0].wind.speed),
-        }
+        };
+        this.setItemsProperties(newItemsProperties);
       }
     },
   },

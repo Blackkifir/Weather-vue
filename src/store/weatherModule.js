@@ -3,19 +3,26 @@ import axios from "axios";
 export const weatherModule = {
   state: () => ({
     items: [],
+    itemsProperties: {},
     isLoading: false,
     searchCity: '',
+    favoritesCards: [],
   }),
-  getters: {},
   mutations: {
-    setLoading(state, isLoading) {
-      state.isLoading = isLoading;
-    },
     setItems(state, items) {
       state.items = items;
     },
+    setItemsProperties(state, properties) {
+      state.itemsProperties = properties;
+    },
+    setLoading(state, isLoading) {
+      state.isLoading = isLoading;
+    },
     setSearchCity(state, searchCity) {
       state.searchCity = searchCity;
+    },
+    setFavoritesCards(state, card) {
+      state.favoritesCards.push(card);
     }
   },
   actions: {

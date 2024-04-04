@@ -10,21 +10,21 @@
     </div>
     <div class="card_details">
       <p class="card_text">
-        description:
+        description: {{ description }}
       </p>
       <p class="card_text">
-        temperature:
+        temperature: {{ temperature }}
       </p>
       <p class="card_text">
-        humidity:
+        humidity: {{ humidity }}
       </p>
       <p class="card_text">
-        wind:
+        wind: {{ wind }}
       </p>
     </div>
     <div class="card_locations">
       <p class="card_text">
-        locations:
+        locations: {{ name }}
       </p>
     </div>
   </div>
@@ -33,6 +33,14 @@
 <script>
   export default {
     name: 'favorites-card',
+    
+    props: {
+      description: [String],
+      temp: [Number],
+      humidity: [Number],
+      wind: [Number],
+      name: [String],
+    }
   }
 </script>
 
