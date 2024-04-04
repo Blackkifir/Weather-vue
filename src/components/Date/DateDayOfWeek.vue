@@ -57,12 +57,6 @@ export default {
           temp: Math.round(this.items.list[0].main.temp - 273.15),
           humidity: this.items.list[0].main.humidity,
           wind: Math.round(this.items.list[0].wind.speed),
-
-          date: new Date(this.items.list[0].dt_txt),
-          days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-          dayOfWeek: this.days[this.date.getDay()],
-          dayOfMonth: this.date.getDate(),
-
         }
       }
     },

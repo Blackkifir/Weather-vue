@@ -3,12 +3,14 @@
     <div class="weather">
       <div class="weather_buttons">
         <button
+          @click="$router.push('/')"
           class="primary-button"
           type="button"
         >
           Home
         </button>
         <button
+          @click="$router.push('/favorites')"
           class="favorites-button"
           type="button"
         >
@@ -16,18 +18,29 @@
         </button>
       </div>
     </div>
-    <primary-block />
+    <primary-block v-if="isHomeRoute" />
+    <favorites-block v-if="isFavoritesRoute" />
   </main>
 </template>
 
 <script>
   import PrimaryBlock from '@/components/Primary/PrimaryBlock.vue';
+  import FavoritesBlock from '@/components/Favorites/FavoritesBlock.vue';
 
 export default {
   name: 'main-static',
   components: {
     PrimaryBlock,
-  }
+    FavoritesBlock,
+  },
+  computed: {
+    isHomeRoute() {
+      return this.$route.path === '/';
+    },
+    isFavoritesRoute() {
+      return this.$route.path === '/favorites';
+    }
+  },
 }
 </script>
 
