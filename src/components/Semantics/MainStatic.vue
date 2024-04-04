@@ -32,6 +32,10 @@ export default {
 </script>
 
 <style scoped>
+  .main {
+    margin-bottom: 30px;
+  }
+
   .weather_buttons {
     display: flex;
     gap: 10px;

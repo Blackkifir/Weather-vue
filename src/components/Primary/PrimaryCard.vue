@@ -4,13 +4,13 @@
       <img class="big-card_img" src="@/assets/cardImg.png" alt="Weather icon not found">
     </div>
     <div class="big-card_details">
-      <p class="big-card_text">Description: Sunny</p>
-      <p class="big-card_text">Temperature: 25°C</p>
-      <p class="big-card_text">Humidity: 60%</p>
-      <p class="big-card_text">Wind: 5 m/s</p>
+      <p class="big-card_text">Description: {{ description }}</p>
+      <p class="big-card_text">Temperature: {{`${ temp }°C`}}</p>
+      <p class="big-card_text">Humidity: {{`${ humidity }%`}}</p>
+      <p class="big-card_text">Wind: {{ wind }} m/s</p>
     </div>
     <div class="big-card_locations">
-      <p class="big-card_text">Location: Your City</p>
+      <p class="big-card_text">Location: {{ name }}</p>
     </div>
   </div>
 </template>
@@ -18,6 +18,15 @@
 <script>
 export default {
   name: 'primary-card',
+
+  props: {
+    id: [Number],
+    description: [String],
+    temp: [Number],
+    humidity: [Number],
+    wind: [Number],
+    name: [String],
+  }
 }
 </script>
 
