@@ -1,8 +1,8 @@
 <template>
   <div class="dayOfWeek">
     <div class="dayOfWeek_date">
-      <p class="dayOfWeek_day">31</p>
-      <p class="dayOfWeek_currentDay">Sunday</p>
+      <p class="dayOfWeek_day">{{ this.dayOfMonth }}</p>
+      <p class="dayOfWeek_currentDay">{{ this.dayOfWeek }}</p>
     </div>
     <primary-card
       :id="itemsProperties.id"
@@ -28,6 +28,10 @@ export default {
   data() {
     return {
       itemsProperties: {},
+      date: {},
+      days: [],
+      dayOfWeek: '',
+      dayOfMonth: 0,
     }
   },
   computed: {
@@ -41,6 +45,11 @@ export default {
     }),
     loadDataItems() {
       if (this.items.length !== 0) {
+        this.date = new Date(this.items.list[0].dt_txt);
+        this.days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        this.dayOfWeek = this.days[this.date.getDay()];
+        this.dayOfMonth = this.date.getDate();
+
         this.itemsProperties = {
           id: this.items.city.id,
           name: this.items.city.name,
@@ -48,6 +57,12 @@ export default {
           temp: Math.round(this.items.list[0].main.temp - 273.15),
           humidity: this.items.list[0].main.humidity,
           wind: Math.round(this.items.list[0].wind.speed),
+
+          date: new Date(this.items.list[0].dt_txt),
+          days: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+          dayOfWeek: this.days[this.date.getDay()],
+          dayOfMonth: this.date.getDate(),
+
         }
       }
     },
