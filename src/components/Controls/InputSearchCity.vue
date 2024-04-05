@@ -39,6 +39,12 @@ export default {
   props: {
     modelValue: [String, Number],
   },
+  computed: {
+    ...mapState({
+      itemsProperties: state => state.weather.itemsProperties,
+      favoritesCards: state => state.weather.favoritesCards,
+    }),
+  },
   methods: {
     ...mapMutations({
       setFavoritesCards: 'weather/setFavoritesCards',
@@ -47,14 +53,19 @@ export default {
       this.$emit('update:modelValue', event.target.value);
     },
     addToFavoritesCard() {
+      if (this.favoritesCards.length >= 5) {
+        alert('You can only add up to 5 favorites.');
+        return;
+      }
+
+      const isAlreadyAdded = this.favoritesCards.some(card => card.name === this.itemsProperties.name);
+      
+      if (isAlreadyAdded) {
+        alert('This city is already added to your favorites.');
+        return;
+      }
       this.setFavoritesCards(this.itemsProperties);
     },
-  },
-  computed: {
-    ...mapState({
-      itemsProperties: state => state.weather.itemsProperties,
-      favoritesCards: state => state.weather.favoritesCards,
-    }),
   },
 };
 </script>
