@@ -53,7 +53,7 @@ export default {
     }),
   },
   created() {
-    this.debouncedGetDayOfWeek = debounce(this.getDayOfWeek, 3000);
+    this.debouncedGetDayOfWeek = debounce(this.getDayOfWeek, 2500);
   },
   mounted() {
     this.getDayOfWeek();
