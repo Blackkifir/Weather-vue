@@ -1,6 +1,7 @@
 <template>
   <div class="card">
     <button
+      @click="openModalWindow"
       class="card_deleteCard"
       type="button">
         &#10005;
@@ -31,17 +32,39 @@
 </template>
 
 <script>
-  export default {
-    name: 'favorites-card',
-    
-    props: {
-      description: [String],
-      temp: [Number],
-      humidity: [Number],
-      wind: [Number],
-      name: [String],
-    }
-  }
+import { mapState, mapMutations } from 'vuex';
+
+export default {
+  name: 'favorites-card',
+
+  props: {
+    id: Number,
+    description: String,
+    temperature: Number,
+    humidity: Number,
+    wind: Number,
+    name: String,
+  },
+
+  computed: {
+    ...mapState({
+      isModalVisible: state => state.weather.isModalVisible,
+      idCard: state => state.weather.idCard,
+    }),
+  },
+
+  methods: {
+    ...mapMutations({
+      setModalVisible: 'weather/setModalVisible',
+      setIdCard: 'weather/setIdCard',
+      setDeleteCard: 'weather/setDeleteCard',
+    }),
+    openModalWindow() {
+      this.setIdCard(this.id);
+      this.setModalVisible(true);
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  import FavoritesAllCards from './FavoritesAllCards.vue';
+import FavoritesAllCards from './FavoritesAllCards.vue';
 
-  export default {
-    name: 'favorites-block',
-    components: {
-      FavoritesAllCards,
-    }
+export default {
+  name: 'favorites-block',
+  components: {
+    FavoritesAllCards,
   }
+}
 </script>
 
 <style scoped>

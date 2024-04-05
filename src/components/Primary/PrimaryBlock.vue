@@ -30,6 +30,18 @@ export default {
     PrimaryChart,
     RainbowLoader,
   },
+  computed: {
+    ...mapState({
+      items: state => state.weather.items,
+      isLoading: state => state.weather.isLoading,
+      searchCity: state => state.weather.searchCity,
+    }),
+  },
+  watch: {
+    searchCity(newCity) {
+      this.debouncedGetDayOfWeek(newCity);
+    }
+  },
   methods: {
     ...mapMutations({
       setItems: 'weather/setItems',
@@ -40,20 +52,8 @@ export default {
       getDayOfWeek: 'weather/getDayOfWeek',
     }),
   },
-  computed: {
-    ...mapState({
-      items: state => state.weather.items,
-      isLoading: state => state.weather.isLoading,
-      searchCity: state => state.weather.searchCity,
-    }),
-  },
   created() {
     this.debouncedGetDayOfWeek = debounce(this.getDayOfWeek, 3000);
-  },
-  watch: {
-    searchCity(newCity) {
-      this.debouncedGetDayOfWeek(newCity);
-    }
   },
   mounted() {
     this.getDayOfWeek();

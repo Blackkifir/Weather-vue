@@ -7,6 +7,8 @@ export const weatherModule = {
     isLoading: false,
     searchCity: '',
     favoritesCards: [],
+    isModalVisible: false,
+    idCard: 0,
   }),
   mutations: {
     setItems(state, items) {
@@ -21,9 +23,18 @@ export const weatherModule = {
     setSearchCity(state, searchCity) {
       state.searchCity = searchCity;
     },
-    setFavoritesCards(state, card) {
-      state.favoritesCards.push(card);
-    }
+    setFavoritesCards(state, newCards) {
+      state.favoritesCards.push(newCards);
+    },
+    setModalVisible(state, isModalVisible) {
+      state.isModalVisible = isModalVisible;
+    },
+    setIdCard(state, idCard) {
+      state.idCard = idCard;
+    },
+    setDeleteCard(state, idCard) {
+      state.favoritesCards = state.favoritesCards.filter((card) => card.id !== idCard);
+    },
   },
   actions: {
     async getDayOfWeek({commit}, city = 'New York') {
