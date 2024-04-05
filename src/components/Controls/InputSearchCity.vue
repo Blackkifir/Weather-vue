@@ -111,6 +111,7 @@ export default {
     font-size: 15px;
     line-height: 15px;
     cursor: pointer;
+    color: #000000;
   }
   .toFavoritesBtn:hover {
     transition: all .2s;

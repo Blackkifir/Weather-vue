@@ -4,7 +4,9 @@
       @click="openModalWindow"
       class="card_deleteCard"
       type="button">
-        &#10005;
+        <span class="card_deleteCard_cross">
+          &#10005;
+        </span>
     </button>
     <div class="card_icons">
       <img
@@ -99,11 +101,15 @@ export default {
     height: 25px;
     cursor: pointer;
     background-color: rgb(28, 124, 107);
-    color: inherit;
   }
   .card_deleteCard:hover {
     transition: all .2s;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card_deleteCard_cross {
+    font-size: 15px;
+    color: #FFFFFF;
   }
   
   .card_icons {
