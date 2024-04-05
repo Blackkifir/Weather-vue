@@ -23,8 +23,9 @@ export const weatherModule = {
     setSearchCity(state, searchCity) {
       state.searchCity = searchCity;
     },
-    setFavoritesCards(state, newCards) {
-      state.favoritesCards.push(newCards);
+    setFavoritesCards(state, newCard) {
+      state.favoritesCards.push(newCard);
+      localStorage.setItem('favoritesCards', JSON.stringify(state.favoritesCards));
     },
     setModalVisible(state, isModalVisible) {
       state.isModalVisible = isModalVisible;
@@ -34,6 +35,10 @@ export const weatherModule = {
     },
     setDeleteCard(state, idCard) {
       state.favoritesCards = state.favoritesCards.filter((card) => card.id !== idCard);
+      localStorage.setItem('favoritesCards', JSON.stringify(state.favoritesCards));
+    },
+    storageFavoritesCards(state, cards) {
+      state.favoritesCards = cards;
     },
   },
   actions: {
@@ -49,7 +54,13 @@ export const weatherModule = {
       } finally {
         commit('setLoading', false);
       }
-    }
+    },
+    loadFavoritesCards({ commit }) {
+      const storage = localStorage.getItem('favoritesCards');
+      if (storage) {
+        commit('storageFavoritesCards', JSON.parse(storage));
+      }
+    },
   },
   namespaced: true,
-}
+};

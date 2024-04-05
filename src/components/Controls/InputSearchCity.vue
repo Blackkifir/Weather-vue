@@ -1,7 +1,9 @@
 <template>
   <div class="searchCity">
-    <div>
-      <label class="chooseText" for="searchCity">Choose a city:</label>
+    <div class="searchCity_chooseBlock">
+      <label class="chooseText" for="searchCity">
+        Choose a city:
+      </label>
       <input
         class="searchInput"
         type="text"
@@ -25,7 +27,7 @@
         class="toFavoritesBtn"
         type="button"
       >
-        To Favorites
+        Add to Favorites
       </button>
     </div>
   </div>
@@ -53,18 +55,17 @@ export default {
       this.$emit('update:modelValue', event.target.value);
     },
     addToFavoritesCard() {
+      const isAlreadyAdded = this.favoritesCards.some(card => card.name === this.itemsProperties.name);
+
       if (this.favoritesCards.length >= 5) {
         alert('You can only add up to 5 favorites.');
         return;
-      }
-
-      const isAlreadyAdded = this.favoritesCards.some(card => card.name === this.itemsProperties.name);
-      
-      if (isAlreadyAdded) {
+      } else if (isAlreadyAdded) {
         alert('This city is already added to your favorites.');
         return;
+      } else {
+        this.setFavoritesCards(this.itemsProperties);
       }
-      this.setFavoritesCards(this.itemsProperties);
     },
   },
 };
@@ -114,5 +115,25 @@ export default {
   .toFavoritesBtn:hover {
     transition: all .2s;
     box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+  }
+
+  @media screen and (max-width: 600px) {
+    .searchCity {
+      flex-direction: column;
+    }
+
+    .searchCity_chooseBlock {
+      margin-bottom: 20px;
+    }
+
+    .chooseText {
+      font-size: 15px;
+    }
+
+    .searchInput {
+      padding: 5px 10px;
+      font-size: 12px;
+      line-height: 12px;
+    }
   }
 </style>

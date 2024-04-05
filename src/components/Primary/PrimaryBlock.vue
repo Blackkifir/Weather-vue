@@ -32,7 +32,6 @@ export default {
   },
   computed: {
     ...mapState({
-      items: state => state.weather.items,
       isLoading: state => state.weather.isLoading,
       searchCity: state => state.weather.searchCity,
     }),
@@ -44,7 +43,6 @@ export default {
   },
   methods: {
     ...mapMutations({
-      setItems: 'weather/setItems',
       setLoading: 'weather/setLoading',
       setSearchCity: 'weather/setSearchCity',
     }),
@@ -67,5 +65,11 @@ export default {
     border-radius: 5px;
     padding: 25px 25px;
     background-color: rgb(28, 124, 107);
+  }
+
+  @media screen and (max-width: 600px) {
+    .primary {
+      padding: 15px 15px;
+    }
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div
-    v-if="favoritesCards.length !== 0"
+    v-if="favoritesCards.length > 0"
     class="favorites_allCards"
   >
     <favorites-card
@@ -19,7 +19,9 @@
     class="favorites_allCardsNotElements"
     v-else
   >
-    <p class="favorites_allCards_text">Nothing has been added to favorites &#x1F614;</p>
+    <p class="favorites_allCards_text">
+      Nothing has been added to favorites &#x1F614;
+    </p>
   </div>
 </template>
 
@@ -39,6 +41,9 @@ export default {
       favoritesCards: state => state.weather.favoritesCards,
     }),
   },
+  mounted() {
+    this.$store.dispatch('weather/loadFavoritesCards');
+  }
 }
 </script>
 
@@ -65,5 +70,13 @@ export default {
     font-size: 23px;
     font-weight: 700;
     line-height: 23px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .favorites_allCards_text {
+      text-align: center;
+      font-size: 17px;
+      line-height: 20px;
+    }
   }
 </style>

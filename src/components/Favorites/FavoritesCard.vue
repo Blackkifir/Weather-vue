@@ -7,14 +7,18 @@
         &#10005;
     </button>
     <div class="card_icons">
-      <img class="card_img" src="@/assets/cardImg.png" alt="icon-notFound">
+      <img
+        class="card_img"
+        src="@/assets/cardImg.png"
+        alt="icon-notFound"
+      >
     </div>
     <div class="card_details">
       <p class="card_text">
         description: {{ description }}
       </p>
       <p class="card_text">
-        temperature: {{ temperature }}
+        temperature: {{ temp }}
       </p>
       <p class="card_text">
         humidity: {{ humidity }}
@@ -40,7 +44,7 @@ export default {
   props: {
     id: Number,
     description: String,
-    temperature: Number,
+    temp: Number,
     humidity: Number,
     wind: Number,
     name: String,
@@ -57,7 +61,6 @@ export default {
     ...mapMutations({
       setModalVisible: 'weather/setModalVisible',
       setIdCard: 'weather/setIdCard',
-      setDeleteCard: 'weather/setDeleteCard',
     }),
     openModalWindow() {
       this.setIdCard(this.id);
@@ -69,81 +72,118 @@ export default {
 
 <style scoped>
   .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex: 0 0 auto;
-  transition: transform 0.3s ease;
-  position: relative;
-  margin: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  padding: 40px;
-  width: 325px;
-  background-color: #f9f9f9;
-}
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 0 auto;
+    transition: transform 0.3s ease;
+    position: relative;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 325px;
+    background-color: #f9f9f9;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
 
-.card_deleteCard {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  border: none;
-  border-radius: 5px;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  background-color: rgb(28, 124, 107);
-  color: inherit;
-}
-.card_deleteCard:hover {
-  transition: all .2s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
+  .card_deleteCard {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    background-color: rgb(28, 124, 107);
+    color: inherit;
+  }
+  .card_deleteCard:hover {
+    transition: all .2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card_icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to right, #ff7e5f 0%, #feb47b 100%);
+  }
+  
+  .card_img {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .card_details {
+    margin-bottom: 5px;
+  }
+  
+  .card_details,
+  .card_locations {
+    width: 100%;
+  }
+  
+  .card_text {
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin: 5px 0;
+    background-color: #ffffff;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  .card_text:first-child {
+    margin-top: 0;
+  }
+  
+  .card_text:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media screen and (max-width: 800px) {
+    .card {
+      flex: 0 0 auto;
+      padding: 15px;
+      width: 250px;
+    }
 
-.card:hover {
-  transform: translateY(-5px);
-}
+    .card_img {
+      width: 70px;
+      height: 70px;
+    }
 
-.card_icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  border-radius: 5px;
-  width: 100%;
-  height: 100px;
-  background: linear-gradient(to right, #ff7e5f 0%, #feb47b 100%);
-}
+    .card_text {
+      font-size: 12px;
+    }
+  }
 
-.card_img {
-  width: 85px;
-  height: 85px;
-}
+  @media screen and (max-width: 450px) {
+    .card {
+      flex: 0 0 auto;
+      padding: 15px;
+      width: 200px;
+    }
 
-.card_details {
-  margin-bottom: 5px;
-}
+    .card_icons {
+      height: 70px;
+    }
 
-.card_details,
-.card_locations {
-  width: 100%;
-}
+    .card_img {
+      width: 60px;
+      height: 60px;
+    }
 
-.card_text {
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 10px;
-  margin: 5px 0;
-  background-color: #ffffff;
-  font-size: 14px;
-  color: #333;
-}
-
-.card_text:first-child {
-  margin-top: 0;
-}
-
-.card_text:last-child {
-  margin-bottom: 0;
-}
+    .card_text {
+      font-size: 10px;
+    }
+  }
 </style>

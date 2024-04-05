@@ -79,6 +79,8 @@ export default {
 
   .dayOfWeek_date {
     display: flex;
+    border: none;
+    border-radius: 5px;
     margin-bottom: 10px;
     width: 100%;
   }
@@ -86,6 +88,7 @@ export default {
   .dayOfWeek_day,
   .dayOfWeek_currentDay {
     border: none;
+    border-radius: 5px;
     padding: 5px 10px;
     background-color: #FFFFFF;
     font-size: 17px;
@@ -97,4 +100,10 @@ export default {
     border-right: 2px solid #000000;
   }
 
+  @media screen and (max-width: 450px) {
+    .dayOfWeek_day,
+    .dayOfWeek_currentDay {
+      font-size: 15px;
+    }
+  }
 </style>
