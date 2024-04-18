@@ -2,6 +2,7 @@
   <div v-if="!isLoading">
     <div class="primary">
       <input-searchCity
+        :searchCitySubmit="searchCitySubmit"
         :modelValue="searchCity"
         @update:modelValue="setSearchCity"
       />
@@ -15,7 +16,6 @@
 </template>
 
 <script>
-import { debounce } from 'lodash-es';
 import { mapState, mapActions, mapMutations } from 'vuex';
 import InputSearchCity from '@/components/Controls/InputSearchCity.vue';
 import PrimaryDayOfWeek from '@/components/Primary/PrimaryDayOfWeek';
@@ -32,14 +32,10 @@ export default {
   },
   computed: {
     ...mapState({
+      items: state => state.weather.items,
       isLoading: state => state.weather.isLoading,
       searchCity: state => state.weather.searchCity,
     }),
-  },
-  watch: {
-    searchCity(newCity) {
-      this.debouncedGetDayOfWeek(newCity);
-    }
   },
   methods: {
     ...mapMutations({
@@ -49,12 +45,16 @@ export default {
     ...mapActions({
       getDayOfWeek: 'weather/getDayOfWeek',
     }),
-  },
-  created() {
-    this.debouncedGetDayOfWeek = debounce(this.getDayOfWeek, 2500);
+    searchCitySubmit() {
+      if (this.searchCity.length !== 0) {
+        this.getDayOfWeek(this.searchCity);
+      }
+    }
   },
   mounted() {
-    this.getDayOfWeek();
+    if (this.items.length === 0) {
+      this.getDayOfWeek();
+    }
   },
 };
 </script>

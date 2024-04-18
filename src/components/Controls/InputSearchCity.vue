@@ -1,5 +1,9 @@
 <template>
-  <div class="searchCity">
+  <form
+    @submit.prevent="searchCitySubmit"
+    name="search"
+    class="searchCity"
+  >
     <div class="searchCity_chooseBlock">
       <label class="chooseText" for="searchCity">
         Choose a city:
@@ -20,6 +24,13 @@
         <option value="Chicago" />
         <option value="Houston" />
       </datalist>
+      <button
+        @submit="searchCitySubmit"
+        class="searchSubmitBtn"
+        type="submit"
+      >
+        Search
+      </button>
     </div>
     <div>
       <button
@@ -30,7 +41,7 @@
         Add to Favorites
       </button>
     </div>
-  </div>
+  </form>
 </template>
 
 <script>
@@ -40,6 +51,7 @@ export default {
   name: 'input-searchCity',
   props: {
     modelValue: [String, Number],
+    searchCitySubmit: Function,
   },
   computed: {
     ...mapState({
@@ -86,6 +98,7 @@ export default {
   }
 
   .searchInput {
+    margin-right: 10px;
     border: none;
     border-radius: 5px;
     padding: 5px 15px;
@@ -102,6 +115,19 @@ export default {
     font-size: 15px;
     line-height: 15px;
     color: #000000;
+  }
+
+  .searchSubmitBtn {
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    font-size: 15px;
+    line-height: 15px;
+    cursor: pointer;
+    background-color: #FFFFFF;
+  }
+  .searchSubmitBtn:hover {
+    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
   }
 
   .toFavoritesBtn {

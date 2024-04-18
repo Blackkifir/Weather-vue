@@ -98,9 +98,6 @@ export default {
         };
       }
     },
-    clickChecked() {
-      console.log(this.items);
-    }
   }
 }
 </script>

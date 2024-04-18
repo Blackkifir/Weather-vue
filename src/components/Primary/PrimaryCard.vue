@@ -12,8 +12,6 @@
       <p class="big-card_text">Temperature: {{`${ temp }°C`}}</p>
       <p class="big-card_text">Humidity: {{`${ humidity }%`}}</p>
       <p class="big-card_text">Wind: {{ wind }} m/s</p>
-    </div>
-    <div class="big-card_locations">
       <p class="big-card_text">Location: {{ name }}</p>
     </div>
   </div>
