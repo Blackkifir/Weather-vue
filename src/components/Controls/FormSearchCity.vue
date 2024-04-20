@@ -147,11 +147,12 @@ export default {
       &_searchSubmitBtn {
         border: none;
         border-radius: 5px;
-        padding: 7px 15px;
-        font-size: 15px;
-        line-height: 15px;
+        padding: 5px 15px;
         cursor: pointer;
+        font-size: 17px;
+        line-height: 17px;
         background-color: #FFFFFF;
+        color: #000000;
       }
       &_searchSubmitBtn:hover {
         transition: all .2s;
