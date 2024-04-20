@@ -1,18 +1,18 @@
 <template>
-  <div class="big-card">
-    <div class="big-card_icons">
+  <div class="bigCard">
+    <div class="bigCard_icons">
       <img
-        class="big-card_img"
+        class="bigCard_icons_img"
         src="@/assets/cardImg.png"
         alt="Weather icon not found"
       >
     </div>
-    <div class="big-card_details">
-      <p class="big-card_text">Description: {{ description }}</p>
-      <p class="big-card_text">Temperature: {{`${ temp }°C`}}</p>
-      <p class="big-card_text">Humidity: {{`${ humidity }%`}}</p>
-      <p class="big-card_text">Wind: {{ wind }} m/s</p>
-      <p class="big-card_text">Location: {{ name }}</p>
+    <div class="bigCard_details">
+      <p class="bigCard_details_text">Description: {{ description }}</p>
+      <p class="bigCard_details_text">Temperature: {{`${ temp }°C`}}</p>
+      <p class="bigCard_details_text">Humidity: {{`${ humidity }%`}}</p>
+      <p class="bigCard_details_text">Wind: {{ wind }} m/s</p>
+      <p class="bigCard_details_text">Location: {{ name }}</p>
     </div>
   </div>
 </template>
@@ -28,12 +28,12 @@ export default {
     humidity: [Number],
     wind: [Number],
     name: [String],
-  }
+  },
 }
 </script>
 
-<style scoped>
-  .big-card {
+<style lang="scss">
+  .bigCard {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -41,84 +41,86 @@ export default {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     padding: 40px;
     background-color: #f9f9f9;
-  }
-  
-  .big-card_icons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 20px;
-    border-radius: 5px;
-    width: 100%;
-    height: 150px;
-    background: linear-gradient(to right, #c6bebe 0%, #7f7c78 100%);
-  }
-  
-  .big-card_img {
-    width: 120px;
-    height: 120px;
-  }
-  
-  .big-card_details,
-  .big-card_locations {
-    width: 100%;
-  }
-  
-  .big-card_text {
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    margin: 10px 0;
-    background-color: #ffffff;
-    font-size: 16px;
-    color: #333;
+
+    &_icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(to right, #ff7e5f 0%, #feb47b 100%);
+
+      &_img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+    &_details {
+      width: 100%;
+
+      &_text {
+        border-radius: 5px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 15px;
+        margin: 10px 0;
+        background-color: #ffffff;
+        font-size: 16px;
+        color: #333;
+      }
+      &_text:first-child {
+        margin-top: 0;
+      }
+      &_text:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
-  .big-card_text:first-child {
-    margin-top: 0;
-  }
-  
-  .big-card_text:last-child {
-    margin-bottom: 0;
-  }
-  
   @media screen and (max-width: 600px) {
-    .big-card {
+    .bigCard {
       padding: 35px;
-    }
-
-    .big-card_img {
-      width: 90px;
-      height: 90px;
-    }
-
-    .big-card_text {
-      font-size: 15px;
+    
+        &_icons {
+        &_img {
+          width: 90px;
+          height: 90px;
+        }
+      }
+  
+      &_details {
+        &_text {
+          font-size: 15px;
+        }
+      }
     }
   }
 
   @media screen and (max-width: 450px) {
-    .big-card {
+    .bigCard {
       padding: 20px;
-    }
     
-    .big-card_img {
-      width: 70px;
-      height: 70px;
-    }
+        &_icons {
+        height: 100px;
 
-    .big-card_icons {
-      height: 100px;
-    }
+        &_img {
+          width: 70px;
+          height: 70px;
+        }
+      }
 
-    .big-card_text {
-      border-radius: 5px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      padding: 7px;
-      margin: 7px 0;
-      background-color: #ffffff;
-      font-size: 12px;
-      color: #333;
+      &_details {
+        &_text {
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+          padding: 7px;
+          margin: 7px 0;
+          background-color: #ffffff;
+          font-size: 12px;
+          color: #333;
+        }
+      }
     }
   }
 </style>

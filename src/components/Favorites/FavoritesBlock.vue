@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import FavoritesAllCards from './FavoritesAllCards.vue';
+import FavoritesAllCards from './FavoritesAllCards';
 
 export default {
   name: 'favorites-block',
@@ -15,7 +15,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
   .favorites {
     border: none;
     border-radius: 5px;

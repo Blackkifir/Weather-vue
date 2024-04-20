@@ -1,5 +1,5 @@
 <template>
-  <div class="chart_container">
+  <div class="chart">
     <div class="chart_flex">
       <Bar
         id="my-chart-id"
@@ -10,17 +10,17 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
-import { Bar } from 'vue-chartjs';
-import
-  {
-    Chart as ChartJS,
-    Title, Tooltip,
-    Legend, BarElement,
-    CategoryScale, LinearScale
-  } from 'chart.js';
+  import { mapState } from 'vuex';
+  import { Bar } from 'vue-chartjs';
+  import
+    {
+      Chart as ChartJS,
+      Title, Tooltip,
+      Legend, BarElement,
+      CategoryScale, LinearScale
+    } from 'chart.js';
 
-ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
+  ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale);
 
 export default {
   name: 'BarChart',
@@ -102,12 +102,12 @@ export default {
 }
 </script>
 
-<style scoped>
-  .chart_container {
+<style lang="scss">
+  .chart {
     overflow-x: auto;
-  }
-  
-  .chart_flex {
-    min-width: 800px;
+
+    &_flex {
+      min-width: 800px;
+    }
   }
 </style>

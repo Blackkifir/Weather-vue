@@ -14,18 +14,18 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
   .header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 100px;
     margin: 20px 0px 50px 0px;
-  }
 
-  .header_logo {
-    width: 125px;
-    height: 100px;
+    &_logo {
+      width: 125px;
+      height: 100px;
+    }
   }
 
   @media screen and (max-width: 600px) {

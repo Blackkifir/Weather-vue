@@ -1,7 +1,7 @@
 <template>
   <div
-    v-if="favoritesCards.length > 0"
     class="favorites_allCards"
+    v-if="favoritesCards.length > 0"
   >
     <favorites-card
       v-for="card in favoritesCards"
@@ -19,7 +19,7 @@
     class="favorites_allCardsNotElements"
     v-else
   >
-    <p class="favorites_allCards_text">
+    <p class="favorites_allCardsNotElements_text">
       Nothing has been added to favorites &#x1F614;
     </p>
   </div>
@@ -27,11 +27,11 @@
 
 <script>
 import { mapState } from 'vuex';
-import FavoritesCard from './FavoritesCard.vue';
-import FavoritesModalWindow from './FavoritesModalWindow.vue';
+import FavoritesCard from './FavoritesCard';
+import FavoritesModalWindow from './FavoritesModalWindow';
 
 export default {
-  name: 'favorites-all-carts',
+  name: 'favorites-allCarts',
   components: {
     FavoritesCard,
     FavoritesModalWindow,
@@ -47,7 +47,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
   .favorites_allCards {
     display: flex;
     justify-content: flex-start;
@@ -64,19 +64,21 @@ export default {
     border: 2px solid #FFFFFF;
     border-radius: 5px;
     padding: 15px;
-  }
 
-  .favorites_allCards_text {
-    font-size: 23px;
-    font-weight: 700;
-    line-height: 23px;
+    &_text {
+      font-size: 23px;
+      font-weight: 700;
+      line-height: 23px;
+    }
   }
 
   @media screen and (max-width: 600px) {
-    .favorites_allCards_text {
-      text-align: center;
-      font-size: 17px;
-      line-height: 20px;
+    .favorites_allCardsNotElements {
+      &_text {
+        text-align: center;
+        font-size: 17px;
+        line-height: 20px;
+      }
     }
   }
 </style>

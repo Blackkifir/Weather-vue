@@ -3,16 +3,16 @@
     <div class="weather">
       <div class="weather_buttons">
         <button
-          @click="$router.push('/')"
-          class="primary-button"
+          class="weather_buttons_primaryBtn"
           type="button"
+          @click="$router.push('/')"
         >
           Home
         </button>
         <button
-          @click="$router.push('/favorites')"
-          class="favorites-button"
+          class="weather_buttons_favoritesBtn"
           type="button"
+          @click="$router.push('/favorites')"
         >
           Favorites
         </button>
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-  import PrimaryBlock from '@/components/Primary/PrimaryBlock.vue';
-  import FavoritesBlock from '@/components/Favorites/FavoritesBlock.vue';
+  import PrimaryBlock from '@/components/Primary/PrimaryBlock';
+  import FavoritesBlock from '@/components/Favorites/FavoritesBlock';
 
 export default {
   name: 'main-static',
@@ -44,7 +44,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
   .main {
     margin-bottom: 30px;
   }
@@ -53,22 +53,23 @@ export default {
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
-  }
 
-  .primary-button,
-  .favorites-button {
-    border: none;
-    border-radius: 5px;
-    padding: 5px 15px;
-    background-color: rgb(28, 124, 107);
-    cursor: pointer;
-    font-size: 17px;
-    line-height: 20px;
-    color: inherit;
-  }
-  .primary-button:hover,
-  .favorites-button:hover {
-    transition: all .2s;
-    box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+    &_primaryBtn,
+    &_favoritesBtn {
+      border: none;
+      border-radius: 5px;
+      padding: 5px 15px;
+      background-color: rgb(28, 124, 107);
+      cursor: pointer;
+      font-size: 17px;
+      line-height: 20px;
+      color: inherit;
+    }
+    
+    &_primaryBtn:hover,
+    &_favoritesBtn:hover {
+      transition: all .2s;
+      box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.25);
+    }
   }
 </style>

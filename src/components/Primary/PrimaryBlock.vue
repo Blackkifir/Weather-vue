@@ -1,7 +1,7 @@
 <template>
   <div v-if="!isLoading">
     <div class="primary">
-      <input-searchCity
+      <form-searchCity
         :searchCitySubmit="searchCitySubmit"
         :modelValue="searchCity"
         @update:modelValue="setSearchCity"
@@ -17,15 +17,15 @@
 
 <script>
 import { mapState, mapActions, mapMutations } from 'vuex';
-import InputSearchCity from '@/components/Controls/InputSearchCity.vue';
+import FormSearchCity from '@/components/Controls/FormSearchCity';
 import PrimaryDayOfWeek from '@/components/Primary/PrimaryDayOfWeek';
-import PrimaryChart from './PrimaryChart.vue';
-import RainbowLoader from '../Loader/RainbowLoader.vue';
+import PrimaryChart from './PrimaryChart';
+import RainbowLoader from '../Loader/RainbowLoader';
 
 export default {
   name: 'primary-block',
   components: {
-    InputSearchCity,
+    FormSearchCity,
     PrimaryDayOfWeek,
     PrimaryChart,
     RainbowLoader,
@@ -59,7 +59,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
   .primary {
     border: none;
     border-radius: 5px;

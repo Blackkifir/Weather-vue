@@ -1,8 +1,8 @@
 <template>
   <div class="dayOfWeek">
     <div class="dayOfWeek_date">
-      <p class="dayOfWeek_day">{{ this.dayOfMonth }}</p>
-      <p class="dayOfWeek_currentDay">{{ this.dayOfWeek }}</p>
+      <p class="dayOfWeek_date_day">{{ this.dayOfMonth }}</p>
+      <p class="dayOfWeek_date_currentDay">{{ this.dayOfWeek }}</p>
     </div>
     <primary-card
       :id="itemsProperties.id"
@@ -17,7 +17,7 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex';
-import PrimaryCard from './PrimaryCard.vue';
+import PrimaryCard from './PrimaryCard';
 
 export default {
   name: 'primary_dayOfWeek',
@@ -69,41 +69,45 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss">
   .dayOfWeek {
     margin-bottom: 30px;
     border: 2px solid #FFFFFF;
     border-radius: 5px;
     padding: 15px;
-  }
+    
+    &_date {
+      display: flex;
+      border: none;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      width: 100%;
 
-  .dayOfWeek_date {
-    display: flex;
-    border: none;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 100%;
-  }
-  
-  .dayOfWeek_day,
-  .dayOfWeek_currentDay {
-    border: none;
-    border-radius: 5px;
-    padding: 5px 10px;
-    background-color: #FFFFFF;
-    font-size: 17px;
-    line-height: 20px;
-    color: #000000;
-  }
+      &_day,
+      &_currentDay {
+        border: none;
+        border-radius: 5px;
+        padding: 5px 10px;
+        background-color: #FFFFFF;
+        font-size: 17px;
+        line-height: 20px;
+        color: #000000;
+      }
 
-  .dayOfWeek_day {
-    border-right: 2px solid #000000;
+      &_day {
+        border-right: 2px solid #000000;
+      }
+    }
   }
 
   @media screen and (max-width: 450px) {
-    .dayOfWeek_day,
-    .dayOfWeek_currentDay {
-      font-size: 15px;
+    .dayOfWeek {
+      &_date {
+        &_day,
+        &_currentDay {
+          font-size: 15px;
+        }
+      }
     }
   }
 </style>

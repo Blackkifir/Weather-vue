@@ -15,40 +15,40 @@ export default {
 }
 </script>
 
-<style>
-body {
-  font-family: 'Montserrat', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #FFFFFF;
-  margin-top: 0px;
-}
-
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-li,
-ol,
-span, 
-p, 
-a {
-  margin: 0;
-  padding: 0;
-}
-
-.wrapper {
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0px 15px;
-}
+<style lang="scss">
+  body {
+    margin-top: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: 'Montserrat', sans-serif;
+    color: #FFFFFF;
+  }
+  
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  li,
+  ol,
+  span, 
+  p, 
+  a {
+    margin: 0;
+    padding: 0;
+  }
+  
+  .wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0px 15px;
+  }
 </style>

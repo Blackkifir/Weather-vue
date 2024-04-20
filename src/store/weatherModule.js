@@ -7,9 +7,10 @@ export const weatherModule = {
     isLoading: false,
     searchCity: '',
     favoritesCards: [],
+    isModalAlertVisible: true,
     isModalVisible: false,
     idCard: 0,
-  }),
+  }), 
   mutations: {
     setItems(state, items) {
       state.items = items;
@@ -26,6 +27,9 @@ export const weatherModule = {
     setFavoritesCards(state, newCard) {
       state.favoritesCards.push(newCard);
       localStorage.setItem('favoritesCards', JSON.stringify(state.favoritesCards));
+    },
+    setModalAlertVisible(state, isModalAlertVisible) {
+      state.isModalAlertVisible = isModalAlertVisible;
     },
     setModalVisible(state, isModalVisible) {
       state.isModalVisible = isModalVisible;
